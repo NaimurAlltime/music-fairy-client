@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+
 const ClassCard = ({ item }) => {
   const { name, classImage, instructorName, availableSeats, price } = item;
+  const { user } = useContext(AuthContext);
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
@@ -24,8 +28,11 @@ const ClassCard = ({ item }) => {
         </p>
         <p className="text-lg font-semibold">Price: ${price}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-outline uppercase bg-slate-200 text-[#111] border-0 border-b-4 border-[#111] mb-14">
-            Enroll Now
+          <button
+            disabled={!user}
+            className="btn btn-outline uppercase bg-slate-200 text-[#111] border-0 border-b-4 border-[#111] mb-14"
+          >
+            Select
           </button>
         </div>
       </div>
