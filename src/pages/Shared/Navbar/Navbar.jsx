@@ -1,6 +1,26 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "LogOut successful!.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   const navItems = (
     <>
       <li className="text-lg">
@@ -58,9 +78,28 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <button className="btn px-5 border-0 bg-[#6dd5ed]">Login</button>
-          </Link>
+          {user ? (
+            <>
+              <img
+                data-tooltip-id="user-name"
+                data-tooltip-content={user.displayName}
+                style={{ width: "56px", height: "53px" }}
+                src={user.photoURL}
+                className="mr-3 rounded-full"
+              />
+              <Tooltip id="user-name" />
+              <button
+                onClick={handleLogOut}
+                className="btn btn-outline btn-info"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <Link to="/login">
+              <button className="btn px-5 border-0 bg-[#6dd5ed]">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </>
