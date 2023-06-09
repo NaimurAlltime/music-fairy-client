@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "instructor1",
+    "image": "https://img.freepik.com/premium-photo/handsome-young-businessman-shirt-eyeglasses_85574-6228.jpg?size=626&ext=jpg&ga=GA1.2.209329912.1680195530&semt=sph",
+    "name": "John Smith",
+    "email": "johnsmith@example.com"
+  },
+  {
+    "_id": "instructor2",
+    "image": "https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?size=626&ext=jpg&ga=GA1.1.209329912.1680195530&semt=ais",
+    "name": "Eliana Wilson",
+    "email": "elianawilson@example.com"
+  },
+  {
+    "_id": "instructor3",
+    "image": "https://img.freepik.com/free-photo/handsome-bearded-businessman-rubbing-hands-having-deal_176420-18778.jpg?size=626&ext=jpg&ga=GA1.2.209329912.1680195530&semt=sph",
+    "name": "David Johnson",
+    "email": "davidjohnson@example.com"
+  },
+  {
+    "_id": "instructor4",
+    "image": "https://img.freepik.com/free-photo/friendly-smiling-woman-looking-pleased-front_176420-20779.jpg?size=626&ext=jpg&ga=GA1.2.209329912.1680195530&semt=sph",
+    "name": "Emily Wilson",
+    "email": "emilywilson@example.com"
+  },
+  {
+    "_id": "instructor5",
+    "image": "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&ga=GA1.2.209329912.1680195530&semt=sph",
+    "name": "Michael Brown",
+    "email": "michaelbrown@example.com"
+  },
+  {
+    "_id": "instructor6",
+    "image": "https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg?size=626&ext=jpg&ga=GA1.2.209329912.1680195530&semt=sph",
+    "name": "Sarah Anderson",
+    "email": "sarahanderson@example.com"
+  }
+]
