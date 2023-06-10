@@ -65,6 +65,7 @@ const ManageUsers = () => {
               </th>
               <th>Name</th>
               <th>Email</th>
+              <th>Current Role</th>
               <th className="text-center">Action</th>
             </tr>
           </thead>
@@ -76,6 +77,7 @@ const ManageUsers = () => {
                 </th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
+                <td>{user?.role || "student"}</td>
                 <td className="text-center">
                   {user.role === "instructor" ? (
                     <button disabled className="btn btn-info btn-sm">
