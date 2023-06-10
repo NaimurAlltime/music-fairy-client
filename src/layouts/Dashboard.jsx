@@ -11,8 +11,8 @@ import { HiViewGridAdd } from "react-icons/hi";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-  const isAdmin = true;
-  const isInstructor = false;
+  const isAdmin = false;
+  const isInstructor = true;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -61,7 +61,7 @@ const Dashboard = () => {
                 </NavLink>{" "}
               </li>
               <li>
-                <NavLink to="/add-class">
+                <NavLink to="/dashboard/add-class">
                   {" "}
                   <HiViewGridAdd /> Add a Class
                 </NavLink>

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../layouts/Dashboard";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
 import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-users",
         element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "add-class",
+        element: <AddClass></AddClass>,
       },
     ],
   },
