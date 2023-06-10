@@ -29,7 +29,7 @@ const Dashboard = () => {
       <div className="drawer-side bg-[#088ae7]">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 mt-10 text-lg uppercase">
-          <img className="w-[60px] ml-24 mb-2" src="logo.png" alt="" />
+          <img className="w-[60px] ml-24 mb-2" src="/logo.png" alt="" />
           <li className="text-4xl text-center font-bold">Music Fairy</li>
           <li className="text-2xl text-center font-semibold mb-7">
             Online School
