@@ -1,5 +1,4 @@
 import {
-  FaBookMedical,
   FaBookReader,
   FaCalendarAlt,
   FaHome,
@@ -9,12 +8,11 @@ import {
 } from "react-icons/fa";
 import { GrCheckboxSelected } from "react-icons/gr";
 import { HiViewGridAdd } from "react-icons/hi";
-import { ImSpoonKnife } from "react-icons/im";
 import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-  const isAdmin = false;
-  const isInstructor = true;
+  const isAdmin = true;
+  const isInstructor = false;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -45,23 +43,13 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/add-item">
-                  <ImSpoonKnife /> add items
+                <NavLink to="/dashboard/manage-classes">
+                  <FaListUl /> Manage Classes
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manage-items">
-                  <FaListUl /> Manage Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/manage-bookings">
-                  <FaBookMedical /> manage bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/all-users">
-                  <FaUsers /> all users
+                <NavLink to="/dashboard/manage-users">
+                  <FaUsers /> Manage Users
                 </NavLink>
               </li>
             </>

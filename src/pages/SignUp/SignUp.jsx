@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 
@@ -10,6 +10,8 @@ const SignUp = () => {
     useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -26,20 +28,39 @@ const SignUp = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("User has been created successful!");
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "User created successfully.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        // Swal.fire({
+        //   position: "top-end",
+        //   icon: "success",
+        //   title: "User created successfully.",
+        //   showConfirmButton: false,
+        //   timer: 1500,
+        // });
 
         //   update user profile
-        navigate("/login");
-        reset();
-        logOut();
         updateUserProfile(loggedUser, data.name, data.photo);
-        setError("");
+
+        // store user data in database
+        const saveStudent = { name: data.name, email: data.email };
+        fetch("http://localhost:5000/students", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveStudent),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire(
+                "Good job!",
+                "User Created Successful!. Please Login and get started",
+                "success"
+              );
+              logOut();
+              navigate("/login");
+              reset();
+            }
+          });
       })
       .catch((error) => {
         console.log(error.message);
@@ -53,7 +74,6 @@ const SignUp = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        setError("");
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -61,8 +81,22 @@ const SignUp = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setSuccess("Google Sign In Successful!");
-        navigate("/");
+        // store user data in database
+        const saveStudent = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+        };
+        fetch("http://localhost:5000/students", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveStudent),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.log(error.message);

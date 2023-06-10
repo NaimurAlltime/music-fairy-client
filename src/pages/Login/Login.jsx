@@ -46,7 +46,6 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        setError("");
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -54,8 +53,22 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setSuccess("Google Sign In Successful!");
-        navigate(from, { replace: true });
+        // store user data in database
+        const saveStudent = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+        };
+        fetch("http://localhost:5000/students", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveStudent),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.log(error.message);
