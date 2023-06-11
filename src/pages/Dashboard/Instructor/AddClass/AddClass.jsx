@@ -23,6 +23,7 @@ const AddClass = () => {
       availableSeats: availableSeats,
       classImage: classImage,
       price: parseFloat(price),
+      status: "pending",
     };
     console.log(addClass);
 
