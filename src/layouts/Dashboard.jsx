@@ -9,10 +9,12 @@ import {
 import { GrCheckboxSelected } from "react-icons/gr";
 import { HiViewGridAdd } from "react-icons/hi";
 import { NavLink, Outlet } from "react-router-dom";
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+  const [cart] = useCart();
   const isAdmin = false;
-  const isInstructor = true;
+  const isInstructor = false;
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -83,10 +85,13 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/my-selected-classes">
                   <FaCalendarAlt /> My Selected Classes
+                  <span className="badge inl badge-secondary -mt-2">
+                    +{cart?.length || 0}
+                  </span>
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/payment-history">
+                <NavLink to="/dashboard/my-enrolled-classes">
                   <GrCheckboxSelected /> My Enrolled Classes
                 </NavLink>
               </li>
