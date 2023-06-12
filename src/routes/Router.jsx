@@ -4,9 +4,11 @@ import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses/MyClasses";
 import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses";
+import Payment from "../pages/Dashboard/Student/Payment/Payment";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import Main from "./../layouts/Main";
+import MyEnrolledClasses from "./../pages/Dashboard/Student/MyEnrolledClasses/MyEnrolledClasses";
 import ErrorPage from "./../pages/ErrorPage/ErrorPage";
 import Home from "./../pages/Home/Home/Home";
 
@@ -41,6 +43,16 @@ export const router = createBrowserRouter([
       {
         path: "my-selected-classes",
         element: <MySelectedClasses></MySelectedClasses>,
+      },
+      {
+        path: "my-enrolled-classes",
+        element: <MyEnrolledClasses></MyEnrolledClasses>,
+      },
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/carts/${params.id}`),
       },
       {
         path: "manage-users",

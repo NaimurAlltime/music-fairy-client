@@ -86,7 +86,7 @@ const MySelectedClasses = () => {
                   >
                     Delete
                   </button>
-                  <Link to="/dashboard/payment">
+                  <Link to={`/dashboard/payment/${item._id}`}>
                     <button className="btn text-white btn-xs ml-2 bg-[#0d96f1]">
                       Pay Now
                     </button>
