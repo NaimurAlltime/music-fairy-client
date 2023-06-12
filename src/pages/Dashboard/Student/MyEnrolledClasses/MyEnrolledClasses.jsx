@@ -1,7 +1,17 @@
+import moment from "moment/moment";
+import { useEffect, useState } from "react";
+
 const MyEnrolledClasses = () => {
+  const [enrolledClass, setEnrollClass] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/payments")
+      .then((res) => res.json())
+      .then((data) => setEnrollClass(data));
+  }, []);
+
   return (
     <div className="w-full">
-      <h2 className="text-3xl uppercase font-semibold text-center">
+      <h2 className="text-3xl uppercase font-semibold text-center mb-5">
         My Enrolled Classes
       </h2>
       <div className="overflow-x-auto">
@@ -14,13 +24,14 @@ const MyEnrolledClasses = () => {
               </th>
               <th>Class Image</th>
               <th>Class Name</th>
-              <th>Instructor</th>
+              <th>Instructor Name</th>
+              <th>Instructor Email</th>
               <th>Price</th>
-              <th>A. Seats</th>
+              <th>Enrollment Date</th>
             </tr>
           </thead>
           <tbody className="mt-7">
-            {/* {cart.map((item, index) => (
+            {enrolledClass.map((item, index) => (
               <tr key={item._id}>
                 <th>
                   <label>{index + 1}</label>
@@ -35,14 +46,12 @@ const MyEnrolledClasses = () => {
                   </div>
                 </td>
                 <td>{item.name}</td>
-                <td>
-                  <p>Name: {item.instructorName}</p>
-                  <p>Email: {item.instructorEmail}</p>
-                </td>
+                <td>{item.instructorName}</td>
+                <td>{item.instructorEmail}</td>
                 <td>${item.price}</td>
-                <td>{item.availableSeats}</td>
+                <td>{moment(item.date).format("MMMM Do YYYY")}</td>
               </tr>
-            ))} */}
+            ))}
           </tbody>
         </table>
       </div>
