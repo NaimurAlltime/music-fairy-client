@@ -1,13 +1,15 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
+import useAuth from "../../../../hooks/useAuth";
 
 const PaymentHistory = () => {
   const [paymentHistory, setPaymentHistory] = useState([]);
+  const { user } = useAuth();
   useEffect(() => {
-    fetch("http://localhost:5000/payments")
+    fetch(`http://localhost:5000/payments?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setPaymentHistory(data));
-  }, []);
+  }, [user]);
   return (
     <div className="w-full">
       <h2 className="text-3xl uppercase font-semibold text-center mb-5">

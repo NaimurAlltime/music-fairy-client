@@ -1,13 +1,16 @@
 import moment from "moment/moment";
 import { useEffect, useState } from "react";
+import useAuth from "../../../../hooks/useAuth";
 
 const MyEnrolledClasses = () => {
   const [enrolledClass, setEnrollClass] = useState([]);
+  const { user } = useAuth();
+
   useEffect(() => {
-    fetch("http://localhost:5000/payments")
+    fetch(`http://localhost:5000/payments?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setEnrollClass(data));
-  }, []);
+  }, [user]);
 
   return (
     <div className="w-full">
