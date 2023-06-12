@@ -5,6 +5,7 @@ import {
   FaListUl,
   FaSchool,
   FaUsers,
+  FaWallet,
 } from "react-icons/fa";
 import { GrCheckboxSelected } from "react-icons/gr";
 import { HiViewGridAdd } from "react-icons/hi";
@@ -93,6 +94,11 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/my-enrolled-classes">
                   <GrCheckboxSelected /> My Enrolled Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/payment-history">
+                  <FaWallet /> Payment History
                 </NavLink>
               </li>
             </>
