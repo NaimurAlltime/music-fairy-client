@@ -1,118 +1,16 @@
-import { useState } from "react";
-import Swal from "sweetalert2";
+import useAuth from "../../../../hooks/useAuth";
 import useClasses from "../../../../hooks/useClasses";
 
 const MyClasses = () => {
-  const [classes, , refetch] = useClasses();
-  const [feedbackClass, setFeedbackClass] = useState({});
+  const { user } = useAuth();
+  const [classes] = useClasses();
 
-  const handleApproved = (item) => {
-    // update admin role
-    fetch(`http://localhost:5000/classes/approved/${item._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `Class approved successful!`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-  };
-
-  const handleDenied = (item) => {
-    // update admin role
-    fetch(`http://localhost:5000/classes/denied/${item._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `Class denied successful, please feedback!`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-  };
-
-  console.log(feedbackClass._id);
-
-  // todo: feedback
-  // const handleFeedback = (event, feedbackClass) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const feedback = form.feedback.value;
-  //   const addFeedback = {
-  //     feedback,
-  //   };
-  //   console.log(addFeedback);
-
-  //   // data fetching post api
-  //   fetch(`http://localhost:5000/classes/feedback/${feedbackClass._id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(addFeedback),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount > 0) {
-  //         Swal.fire({
-  //           position: "top-end",
-  //           icon: "success",
-  //           title: `Class Feedback added!`,
-  //           showConfirmButton: false,
-  //           timer: 1500,
-  //         });
-  //       }
-  //     });
-  // };
+  const instructorClasses = classes.filter(
+    (allClass) => allClass.instructorEmail === user?.email
+  );
 
   return (
     <div className="w-full">
-      {/* feedback modal start */}
-      <input type="checkbox" id="my_modal_6" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Opinion your feedback</h3>
-          <form>
-            <textarea
-              cols="45"
-              rows="4"
-              placeholder="feedback here"
-              className="textarea mt-4 textarea-bordered border-info textarea-md w-full"
-              type="text"
-              id="feedback"
-              name="feedback"
-            ></textarea>
-            <input
-              className="btn btn-info btn-xs mt-3"
-              type="submit"
-              value="Send"
-            />
-          </form>
-          <div className="modal-action">
-            <label htmlFor="my_modal_6" className="btn">
-              Close!
-            </label>
-          </div>
-        </div>
-      </div>
-      {/* feedback modal end */}
-
       <div className="uppercase font-semibold flex h-[65px] justify-evenly items-center">
         <h3 className="text-3xl text-center">My Classes </h3>
       </div>
@@ -124,16 +22,20 @@ const MyClasses = () => {
               <th>
                 <label>#</label>
               </th>
-              <th>Image</th>
-              <th>Class Name</th>
+              <th>Class</th>
               <th>Price</th>
               <th>Available Seats</th>
               <th>Status</th>
+              <th>
+                Total Enrolled
+                <br />
+                Students
+              </th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody className="mt-7">
-            {classes.map((item, index) => (
+            {instructorClasses.map((item, index) => (
               <tr key={item._id}>
                 <th>
                   <label>{index + 1}</label>
@@ -145,9 +47,10 @@ const MyClasses = () => {
                         <img src={item.classImage} alt="food" />
                       </div>
                     </div>
+                    <p>{item.name}</p>
                   </div>
                 </td>
-                <td>{item.name}</td>
+
                 <td>${item.price}</td>
                 <td>{item.availableSeats}</td>
                 <td
@@ -161,39 +64,10 @@ const MyClasses = () => {
                 >
                   {item.status}
                 </td>
-                <td className="flex flex-col-reverse gap-1">
-                  {/* <button
-                    onClick={() => handleFeedback(item)}
-                    className="btn btn-xs btn-success"
-                  >
-                    Feedback
-                  </button> */}
-
-                  {/* The button to open modal */}
-                  <label
-                    onClick={() => setFeedbackClass(item)}
-                    htmlFor="my_modal_6"
-                    className="btn btn-xs btn-success"
-                  >
-                    Feedback
-                  </label>
-
-                  <button
-                    onClick={() => handleDenied(item)}
-                    disabled={
-                      item.status === "denied" || item.status === "approved"
-                    }
-                    className="btn btn-xs bg-red-500"
-                  >
-                    Deny
-                  </button>
-                  <button
-                    onClick={() => handleApproved(item)}
-                    className="btn btn-xs btn-info"
-                    disabled={item.status === "approved"}
-                  >
-                    Approve
-                  </button>
+                <td>{0}</td>
+                <td>
+                  <button className="btn btn-xs bg-green-500">Feedback</button>
+                  <button className="btn btn-xs btn-info ml-2">Update</button>
                 </td>
               </tr>
             ))}
