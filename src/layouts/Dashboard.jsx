@@ -11,10 +11,12 @@ import { GrCheckboxSelected } from "react-icons/gr";
 import { HiViewGridAdd } from "react-icons/hi";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import useAdmin from "./../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
-  const isAdmin = false;
+  // const isAdmin = false;
+  const [isAdmin] = useAdmin();
   const isInstructor = false;
   return (
     <div className="drawer lg:drawer-open">
