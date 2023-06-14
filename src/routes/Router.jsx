@@ -5,13 +5,16 @@ import AllInstructor from "../pages/AllInstructor/AllInstructor";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
+import InstructorHome from "../pages/Dashboard/Instructor/InstructorHome/InstructorHome";
 import MyClasses from "../pages/Dashboard/Instructor/MyClasses/MyClasses";
 import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses";
 import Payment from "../pages/Dashboard/Student/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/Student/PaymentHistory/PaymentHistory";
+import StudentHome from "../pages/Dashboard/Student/StudentHome/StudentHome";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import Main from "./../layouts/Main";
+import AdminHome from "./../pages/Dashboard/Admin/AdminHome/AdminHome";
 import MyEnrolledClasses from "./../pages/Dashboard/Student/MyEnrolledClasses/MyEnrolledClasses";
 import ErrorPage from "./../pages/ErrorPage/ErrorPage";
 import Home from "./../pages/Home/Home/Home";
@@ -65,10 +68,18 @@ export const router = createBrowserRouter([
         element: <PaymentHistory></PaymentHistory>,
       },
       {
+        path: "student-home",
+        element: <StudentHome></StudentHome>,
+      },
+      {
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/carts/${params.id}`),
+      },
+      {
+        path: "admin-home",
+        element: <AdminHome></AdminHome>,
       },
       {
         path: "manage-users",
@@ -77,6 +88,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-classes",
         element: <ManageClasses></ManageClasses>,
+      },
+      {
+        path: "instructor-home",
+        element: <InstructorHome></InstructorHome>,
       },
       {
         path: "add-class",

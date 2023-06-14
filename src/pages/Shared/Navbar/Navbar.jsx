@@ -1,15 +1,12 @@
 import { useContext } from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
-import useCart from "../../../hooks/useCart";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  // const [classes] = useClasses();
-  const [cart] = useCart();
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -37,17 +34,11 @@ const Navbar = () => {
         <Link to="/all-classes">Classes</Link>
       </li>
 
-      <li className="text-lg">
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-      <li>
-        <Link to="/dashboard/my-selected-classes">
-          <FaShoppingCart className="text-2xl w-6 h-6" />
-          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-1 -right-2 dark:border-gray-900">
-            +{cart?.length || 0}
-          </div>
-        </Link>
-      </li>
+      {user && (
+        <li className="text-lg">
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
     </>
   );
   return (

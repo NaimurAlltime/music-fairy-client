@@ -38,7 +38,7 @@ const PaymentHistory = () => {
                 <td>{item.name}</td>
                 <td>{item.transactionId}</td>
                 <td>${item.price}</td>
-                <td>{moment(item.date).format("MMMM Do YYYY")}</td>
+                <td>{moment(item.date).format("MMMM Do YYYY, h:mm:ss a")}</td>
               </tr>
             ))}
           </tbody>
