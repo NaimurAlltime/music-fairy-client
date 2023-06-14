@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -83,42 +84,72 @@ const ClassCard = ({ item }) => {
   // }
 
   return (
-    <div
+    <motion.div
       className={
         availableSeats == 0
           ? "card w-full bg-red-500 shadow-xl"
           : "card w-full bg-base-100 shadow-xl"
       }
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
     >
       <figure>
-        <img
+        <motion.img
           className="h-[380px] w-full object-cover"
           src={classImage}
           alt="music"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title px-4 py-1 bg-[#111] text-white absolute bottom-[40%]">
+        <motion.h2
+          className="card-title px-4 py-1 bg-[#111] text-white absolute bottom-[40%]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           {name}
-        </h2>
-        <p className="text-lg font-semibold">
+        </motion.h2>
+        <motion.p
+          className="text-lg font-semibold"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           Instructor Name: {instructorName}
-        </p>
-        <p className="text-lg font-semibold">
+        </motion.p>
+        <motion.p
+          className="text-lg font-semibold"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
           Available Seats: {availableSeats}
-        </p>
-        <p className="text-lg font-semibold">Price: ${price}</p>
+        </motion.p>
+        <motion.p
+          className="text-lg font-semibold"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          Price: ${price}
+        </motion.p>
         <div className="card-actions justify-end">
-          <button
+          <motion.button
             onClick={() => handleAddToCart()}
             disabled={admin || instructor || availableSeats == 0}
             className="btn btn-outline uppercase bg-slate-200 text-[#111] border-0 border-b-4 border-[#111] mb-14"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2 }}
           >
             Select
-          </button>
+          </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
