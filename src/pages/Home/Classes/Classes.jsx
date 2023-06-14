@@ -5,7 +5,9 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popular/classes/approved")
+    fetch(
+      "https://music-fairy-server-naimuralltime.vercel.app/popular/classes/approved"
+    )
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);

@@ -5,7 +5,9 @@ const Instructors = () => {
   const [instructors, setInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/popular/instructors")
+    fetch(
+      "https://music-fairy-server-naimuralltime.vercel.app/popular/instructors"
+    )
       .then((res) => res.json())
       .then((data) => setInstructors(data));
   }, []);

@@ -8,9 +8,12 @@ const ManageClasses = () => {
 
   const handleApproved = (item) => {
     // update admin role
-    fetch(`http://localhost:5000/classes/approved/${item._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://music-fairy-server-naimuralltime.vercel.app/classes/approved/${item._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -30,9 +33,12 @@ const ManageClasses = () => {
 
   const handleDenied = (item) => {
     // update admin role
-    fetch(`http://localhost:5000/classes/denied/${item._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://music-fairy-server-naimuralltime.vercel.app/classes/denied/${item._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -133,13 +139,6 @@ const ManageClasses = () => {
                   {item.status}
                 </td>
                 <td className="flex flex-col-reverse gap-1">
-                  {/* <button
-                  onClick={() => handleFeedback(item)}
-                  className="btn btn-xs btn-success"
-                >
-                  Feedback
-                </button> */}
-
                   {/* The button to open modal */}
                   <label
                     onClick={() => setFeedbackClass(item)}

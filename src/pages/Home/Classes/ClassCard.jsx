@@ -39,7 +39,7 @@ const ClassCard = ({ item }) => {
         price,
         email: user.email,
       };
-      fetch("http://localhost:5000/carts", {
+      fetch("https://music-fairy-server-naimuralltime.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

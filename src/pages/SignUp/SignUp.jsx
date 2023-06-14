@@ -45,7 +45,7 @@ const SignUp = () => {
           email: data.email,
           image: data.photo,
         };
-        fetch("http://localhost:5000/students", {
+        fetch("https://music-fairy-server-naimuralltime.vercel.app/students", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -91,7 +91,7 @@ const SignUp = () => {
           email: loggedUser.email,
           image: loggedUser.photoURL,
         };
-        fetch("http://localhost:5000/students", {
+        fetch("https://music-fairy-server-naimuralltime.vercel.app/students", {
           method: "POST",
           headers: {
             "content-type": "application/json",

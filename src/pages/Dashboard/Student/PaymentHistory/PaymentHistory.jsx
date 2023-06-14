@@ -6,7 +6,9 @@ const PaymentHistory = () => {
   const [paymentHistory, setPaymentHistory] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/payments?email=${user?.email}`)
+    fetch(
+      `https://music-fairy-server-naimuralltime.vercel.app/payments?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setPaymentHistory(data));
   }, [user]);

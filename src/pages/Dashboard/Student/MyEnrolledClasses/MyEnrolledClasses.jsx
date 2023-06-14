@@ -7,7 +7,9 @@ const MyEnrolledClasses = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments?email=${user?.email}`)
+    fetch(
+      `https://music-fairy-server-naimuralltime.vercel.app/payments?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setEnrollClass(data));
   }, [user]);

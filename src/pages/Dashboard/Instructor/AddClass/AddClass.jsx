@@ -28,7 +28,7 @@ const AddClass = () => {
     console.log(addClass);
 
     // data fetching post api
-    fetch("http://localhost:5000/classes", {
+    fetch("https://music-fairy-server-naimuralltime.vercel.app/classes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

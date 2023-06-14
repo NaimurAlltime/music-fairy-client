@@ -19,9 +19,12 @@ const MySelectedClasses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // delete api to database
-        fetch(`http://localhost:5000/carts/${item._id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://music-fairy-server-naimuralltime.vercel.app/carts/${item._id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

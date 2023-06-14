@@ -5,7 +5,9 @@ import ClassCard from "../Home/Classes/ClassCard";
 const AllClasses = () => {
   const [classes, setClasses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/classes/approved")
+    fetch(
+      "https://music-fairy-server-naimuralltime.vercel.app/classes/approved"
+    )
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);

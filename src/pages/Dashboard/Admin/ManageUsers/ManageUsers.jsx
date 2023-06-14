@@ -12,9 +12,12 @@ const ManageUsers = () => {
 
   const handleMakeInstructor = (user) => {
     // update admin role
-    fetch(`http://localhost:5000/students/instructor/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://music-fairy-server-naimuralltime.vercel.app/students/instructor/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -32,9 +35,12 @@ const ManageUsers = () => {
 
   const handleMakeAdmin = (user) => {
     // update admin role
-    fetch(`http://localhost:5000/students/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://music-fairy-server-naimuralltime.vercel.app/students/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
