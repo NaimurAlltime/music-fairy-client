@@ -40,7 +40,11 @@ const SignUp = () => {
         updateUserProfile(loggedUser, data.name, data.photo);
 
         // store user data in database
-        const saveStudent = { name: data.name, email: data.email };
+        const saveStudent = {
+          name: data.name,
+          email: data.email,
+          image: data.photo,
+        };
         fetch("http://localhost:5000/students", {
           method: "POST",
           headers: {
@@ -85,6 +89,7 @@ const SignUp = () => {
         const saveStudent = {
           name: loggedUser.displayName,
           email: loggedUser.email,
+          image: loggedUser.photoURL,
         };
         fetch("http://localhost:5000/students", {
           method: "POST",
