@@ -23,7 +23,7 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
-            className="hero h-[85vh]"
+            className="hero h-[65vh] md:h-[85vh]"
             style={{
               backgroundImage:
                 "url(https://img.freepik.com/premium-photo/little-boy-sitting-music-class_236854-49970.jpg?size=626&ext=jpg)",
@@ -51,7 +51,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="hero h-[85vh] object-cover"
+            className="hero h-[65vh] md:h-[85vh] object-cover"
             style={{
               backgroundImage:
                 "url(https://img.freepik.com/free-photo/group-students-playing-double-bass-drum-set-piano_107420-64786.jpg?size=626&ext=jpg)",
@@ -80,7 +80,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="hero h-[85vh]"
+            className="hero h-[65vh] md:h-[85vh]"
             style={{
               backgroundImage:
                 "url(https://img.freepik.com/premium-photo/happy-girls-recording-new-songs-studio-garage_274679-22634.jpg?size=626&ext=jpg)",
@@ -110,7 +110,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="hero h-[85vh]"
+            className="hero h-[65vh] md:h-[85vh]"
             style={{
               backgroundImage:
                 "url(https://img.freepik.com/premium-photo/group-photo-music-band-studio_279525-2519.jpg?w=900)",
