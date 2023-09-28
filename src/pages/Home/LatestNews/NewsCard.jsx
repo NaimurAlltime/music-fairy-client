@@ -1,7 +1,7 @@
 const NewsCard = ({ news }) => {
   const { title, img, date, posted_by, description } = news;
   return (
-    <div className="card card-compact rounded-none w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact rounded-none w-full md:w-[360px] bg-base-100 shadow-xl">
       <figure>
         <img className="h-72 w-full" src={img} alt="blog" />
       </figure>
