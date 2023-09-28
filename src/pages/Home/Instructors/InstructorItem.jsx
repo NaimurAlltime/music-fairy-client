@@ -5,7 +5,7 @@ const InstructorItem = ({ item }) => {
 
   return (
     <motion.div
-      className="flex flex-col-reverse items-center"
+      className="flex flex-col-reverse items-center mt-3"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -28,7 +28,7 @@ const InstructorItem = ({ item }) => {
         </motion.p>
       </div>
       <motion.img
-        className="h-[260px] w-[260px] rounded-full object-cover bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1"
+        className="h-[220px] w-[220px] rounded-full object-cover bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1"
         src={image}
         alt=""
         initial={{ scale: 0 }}
