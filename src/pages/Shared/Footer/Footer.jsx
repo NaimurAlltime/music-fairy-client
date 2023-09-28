@@ -40,8 +40,8 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
       </div>
-      <div className="text-center pb-5">
-        <p>
+      <div className="text-center pb-5 border-t-2 border-gray-300 lg:mx-16">
+        <p className="mt-3">
           Copyright © {new Date().getFullYear()} - All right reserved by Music
           Fairy
         </p>

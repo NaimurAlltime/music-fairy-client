@@ -19,7 +19,7 @@ const Banner = () => {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper"
+        className="mySwiper mt-32 md:mt-0"
       >
         <SwiperSlide>
           <div className="md:flex flex-row-reverse items-center gap-12 mb-5">
