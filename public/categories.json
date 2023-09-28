@@ -1,0 +1,27 @@
+[
+  {
+    "categoryName": "Guitar  Basics",
+    "logo": "https://cdn-icons-png.flaticon.com/128/1886/1886630.png",
+    "classesAvailable": 30
+  },
+  {
+    "categoryName": "Piano Masterclass",
+    "logo": "https://cdn-icons-png.flaticon.com/128/5771/5771872.png",
+    "classesAvailable": 60
+  },
+  {
+    "categoryName": "Vocal Training",
+    "logo": "https://cdn-icons-png.flaticon.com/128/12139/12139409.png",
+    "classesAvailable": 20
+  },
+  {
+    "categoryName": "Songwriting",
+    "logo": "https://cdn-icons-png.flaticon.com/128/11819/11819116.png",
+    "classesAvailable": 40
+  },
+  {
+    "categoryName": "Violin Basics",
+    "logo": "https://cdn-icons-png.flaticon.com/128/3598/3598444.png",
+    "classesAvailable": 15
+  }
+]

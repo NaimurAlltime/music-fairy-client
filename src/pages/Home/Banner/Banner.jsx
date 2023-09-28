@@ -19,10 +19,10 @@ const Banner = () => {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper mt-32 md:mt-0"
+        className="mySwiper"
       >
         <SwiperSlide>
-          <div className="md:flex flex-row-reverse items-center gap-12 mb-5">
+          <div className="md:flex mx-20 justify-between flex-row-reverse items-center gap-12 mb-5">
             <img src={img1} alt="" />
             <div>
               <h3 className="text-5xl font-bold">Bing Music To Live</h3>
