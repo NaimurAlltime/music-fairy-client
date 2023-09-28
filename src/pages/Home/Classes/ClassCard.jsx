@@ -87,8 +87,8 @@ const ClassCard = ({ item }) => {
     <motion.div
       className={
         availableSeats == 0
-          ? "card w-full bg-red-500 shadow-xl"
-          : "card w-full bg-base-100 shadow-xl"
+          ? "card w-full md:w-[360px] bg-red-500 shadow-xl"
+          : "card w-full md:w-[360px] bg-base-100 shadow-xl"
       }
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
