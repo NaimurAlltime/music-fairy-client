@@ -91,7 +91,7 @@ const Navbar = () => {
             className="btn btn-ghost normal-case text-2xl md:text-3xl font-semibold"
           >
             <img className="w-[45px]" src="/logo.png" alt="" />
-            Music Fairy
+            <span className="hidden md:block">Music Fairy</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
