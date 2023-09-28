@@ -10,7 +10,7 @@ const LatestNews = () => {
   });
 
   return (
-    <div className="mt-16 mb-16">
+    <div className="mt-16 mb-16 max-w-screen-xl mx-auto">
       <h3 className="text-3xl font-bold text-center">Latest News</h3>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-6">
         {latestNews.map((news) => (
