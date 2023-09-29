@@ -10,7 +10,7 @@ const AllInstructor = () => {
       .then((data) => setInstructors(data));
   }, []);
   return (
-    <div className="my-14">
+    <div className="max-w-screen-xl mx-auto my-14">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-6">
         {instructors.map((item) => (
           <InstructorItem key={item._id} item={item}></InstructorItem>
