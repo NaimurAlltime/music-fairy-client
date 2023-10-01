@@ -114,13 +114,13 @@ const Dashboard = () => {
             </NavLink>{" "}
           </li>
           <li>
-            <NavLink to="/instructors">
+            <NavLink to="/all-instructors">
               {" "}
               <FaBookReader /> Instructors
             </NavLink>
           </li>
           <li>
-            <NavLink to="/classes">
+            <NavLink to="/all-classes">
               <FaSchool />
               Classes
             </NavLink>
