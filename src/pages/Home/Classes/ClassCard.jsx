@@ -53,7 +53,7 @@ const ClassCard = ({ item }) => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Cart added successful",
+              title: "class selected successful",
               showConfirmButton: false,
               timer: 1500,
             });
