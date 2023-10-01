@@ -13,7 +13,7 @@ const AllClasses = () => {
   }, []);
 
   return (
-    <div className="my-10 max-w-screen-xl mx-auto">
+    <div className="my-10 max-w-screen-xl mx-auto p-2 md:p-0">
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-7">
         {classes.map((item) => (
           <ClassCard key={item._id} item={item}></ClassCard>
