@@ -57,12 +57,12 @@ const ManageUsers = () => {
   };
 
   return (
-    <div className="md:ml-14">
+    <div className="md:ml-5">
       <div className="uppercase font-semibold h-[65px]">
         <h3 className="text-3xl text-center">Manage Users </h3>
       </div>
       <div className="overflow-x-auto">
-        <table className="table table-zebra md:w-[892px]">
+        <table className="table table-zebra md:w-[915px] mb-5">
           {/* head */}
           <thead className="uppercase bg-[#0d96f1]">
             <tr>
@@ -84,7 +84,7 @@ const ManageUsers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user?.role || "student"}</td>
-                <td className="text-center">
+                <td className="text-center flex">
                   {user.role === "instructor" ? (
                     <button disabled className="btn btn-info btn-sm">
                       Make Instructor
